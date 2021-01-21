@@ -10,7 +10,7 @@ class CourseObjectSerializer(serializers.ModelSerializer):
 class UserObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'full_name', 'age', 'city', 'description', 'experience', 'handicap')
+        fields = ('id', 'username', 'password', 'email', 'age', 'city', 'description', 'experience', 'handicap')
 
 class FoursomeObjectSerializer(serializers.ModelSerializer):
     course = CourseObjectSerializer(many=False)
@@ -25,7 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
     foursomes = FoursomeObjectSerializer(many=True, required=False)
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'full_name', 'age', 'city', 'description', 'experience', 'handicap', 'foursomes')
+        fields = ('id', 'username', 'password', 'email', 'age', 'city', 'description', 'experience', 'handicap', 'foursomes')
 
     def create(self, validated_data):
         user = User.objects.create(
